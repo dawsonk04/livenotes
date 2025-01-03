@@ -38,14 +38,25 @@ function App() {
       </div>
 
       {modalType && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white rounded-lg p-6 max-w-sm w-full">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+          onClick={closeModal}
+        >
+          <div
+            className="bg-white rounded-lg p-6 max-w-sm w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
             <h2 className="text-2xl font-bold mb-4">
               {modalType === 'signup' ? 'Sign Up' : 'Log In'}
             </h2>
             <input
               type="email"
               placeholder="Email"
+              className="w-full p-2 mb-4 border border-gray-300 rounded"
+            />
+            <input
+              type="password"
+              placeholder="Password"
               className="w-full p-2 mb-4 border border-gray-300 rounded"
             />
             <button className="w-full bg-blue-500 text-white p-2 rounded mb-2">
